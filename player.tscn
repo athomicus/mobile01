@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://7ofjcpua1dyo"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_da1i0"]
+[ext_resource type="ArrayMesh" uid="uid://cahsq5ysjw0qo" path="res://meshes/player01.obj" id="2_8tpbt"]
+[ext_resource type="ArrayMesh" uid="uid://cl8ypvkre3i05" path="res://meshes/player02.obj" id="3_d2jbj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_moytx"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[sub_resource type="Animation" id="Animation_lrcyk"]
+resource_name = "stay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player01:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_8tpbt")]
+}
+
+[sub_resource type="Animation" id="Animation_ekj5n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player01:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_8tpbt")]
+}
+
+[sub_resource type="Animation" id="Animation_uqcld"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player01:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_d2jbj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xboid"]
+_data = {
+"RESET": SubResource("Animation_ekj5n"),
+"jump": SubResource("Animation_uqcld"),
+"stay": SubResource("Animation_lrcyk")
+}
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_da1i0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.197635, 0)
+shape = SubResource("BoxShape3D_moytx")
+
+[node name="Player01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_8tpbt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xboid")
+}
