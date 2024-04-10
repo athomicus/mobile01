@@ -7,7 +7,7 @@
 [node name="Player" parent="." instance=ExtResource("1_ewvuk")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.71845)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.78683, 0.347273, -0.510196, 0.15585, 0.688077, 0.708703, 0.597168, -0.637143, 0.487278, -2.36123, 3.28909, 0.0496472)
