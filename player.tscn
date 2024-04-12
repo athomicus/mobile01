@@ -59,7 +59,8 @@ _data = {
 "stay": SubResource("Animation_lrcyk")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["PlayerGroup"]]
+collision_mask = 2
 script = ExtResource("1_da1i0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
