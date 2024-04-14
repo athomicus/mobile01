@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Player
 @onready var camera = $"../Camera3D"
+@onready var animator = $AnimationPlayer
 var jump_velocity = 25.0
 
 const SPEED = 10.0
@@ -13,22 +14,22 @@ var max_fall_velocity = -10.0
 func _ready():
 	viewport_size = get_viewport().size
 	
+	
 func _process(delta):
-	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
-	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
+	
 		
 	if Input.is_key_pressed(KEY_SPACE):
 		jump()
 		
 func _physics_process(delta):
 	
+	play_animation_player()
+	
 	velocity.y -= gravity 
 	if velocity.y < max_fall_velocity:
 		velocity.y = max_fall_velocity #przelatuje
 		
-	print(velocity.y)
+	
 	var direction = Input.get_axis("move_left","move_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -50,5 +51,11 @@ func _physics_process(delta):
 func jump():
 	velocity.y = jump_velocity
 
-
+func play_animation_player():
+	if velocity.y > 0:
+		if animator.current_animation != "jump":
+			animator.play("jump")
+	elif velocity.y < 0:
+		if animator.current_animation != "stay":
+			animator.play("stay")
 	

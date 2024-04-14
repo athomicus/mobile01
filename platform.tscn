@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bglycdnnjv7wp" path="res://meshes/platform.obj" id="1_ocop1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hba33"]
-size = Vector3(4.11141, 0.0576782, 1.98859)
+size = Vector3(1.681, 0.128448, 1.98859)
 
 [node name="Platform" type="Area3D"]
 collision_layer = 2
@@ -14,5 +14,5 @@ script = ExtResource("1_gusje")
 mesh = ExtResource("1_ocop1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00967026, 0.0892029, 0.125275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00173324, 0.180956, 0.125275)
 shape = SubResource("BoxShape3D_hba33")

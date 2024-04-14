@@ -10,11 +10,11 @@ func _on_body_entered(body):
 	
 	if body.is_in_group("PlayerGroup"):
 		body.jump()
-		print("Player Gruop")
+		#print("Player Gruop")
 	'''
 	if body is Player:
 		print("Player from class_name")
-		print(body.velocity.y)
+		#print(body.velocity.y)
 		#if body.velocity.y < 0: # it means falling
    '''
 		
