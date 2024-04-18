@@ -6,8 +6,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hba33"]
 size = Vector3(1.681, 0.128448, 1.98859)
 
-[node name="Platform" type="Area3D"]
+[node name="Platform" type="Area3D" groups=["PlatformGroup"]]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_gusje")
 
 [node name="Platform" type="MeshInstance3D" parent="."]

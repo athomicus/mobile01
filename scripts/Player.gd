@@ -38,8 +38,14 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#global_transform.origin.x the same global_position.x
-	#var playerScreenPos = camera.unproject_position(global_position) #take 3d Object position from screen
+	# 
+	#grab 3d object position from screen, out: positionm in screen pixel np 320x240
+	#var playerScreenPos : Vector2D = camera.unproject_position(global_position)
+	#
+	#                         Vector2D     z
 	#camera.project_position(viewport_size,6) - get viewport(edge) to world position (global_position)
+	#
+	
 	
 	var player_pos_from_viewport = camera.project_position(viewport_size,6) 
 	global_position.x = wrapf(global_position.x, -player_pos_from_viewport.x, player_pos_from_viewport.x)

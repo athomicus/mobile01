@@ -1,20 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://chl5bvio0pwxn"]
+[gd_scene load_steps=5 format=3 uid="uid://chl5bvio0pwxn"]
 
-[ext_resource type="PackedScene" uid="uid://7ofjcpua1dyo" path="res://player.tscn" id="1_ewvuk"]
 [ext_resource type="Script" path="res://Game.gd" id="1_fhw7s"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="2_jse2h"]
+[ext_resource type="PackedScene" uid="uid://rq01rml4bbl1" path="res://level_generator.tscn" id="4_nc1bo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1xm0"]
+size = Vector3(39.7305, 1, 31.0841)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_fhw7s")
-
-[node name="Player" parent="." instance=ExtResource("1_ewvuk")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 fov = 95.0
 script = ExtResource("2_jse2h")
 
+[node name="Destroyer" type="Area3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Destroyer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811, 0, -5.398)
+shape = SubResource("BoxShape3D_m1xm0")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.78683, 0.347273, -0.510196, 0.15585, 0.688077, 0.708703, 0.597168, -0.637143, 0.487278, -2.36123, 3.28909, 0.0496472)
 
-[node name="PlatformParent" type="Node3D" parent="."]
+[node name="LevelGenerator" parent="." instance=ExtResource("4_nc1bo")]

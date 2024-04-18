@@ -55,6 +55,7 @@ pointing/emulate_touch_from_mouse=true
 
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Platform"
+3d_physics/layer_3="Destroyer"
 
 [rendering]
 
