@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Player
 @onready var camera = $"../Camera3D"
+
 @onready var animator = $AnimationPlayer
 var jump_velocity = 25.0
 
@@ -18,9 +19,11 @@ func _ready():
 func _process(delta):
 	
 		
-	if Input.is_key_pressed(KEY_SPACE):
-		jump()
+	#if Input.is_key_pressed(KEY_SPACE):
+	#	jump()
 		
+	if Input.is_action_just_pressed("Jump"):
+		jump()
 func _physics_process(delta):
 	
 	play_animation_player()
@@ -48,6 +51,8 @@ func _physics_process(delta):
 	
 	
 	var player_pos_from_viewport = camera.project_position(viewport_size,6) 
+	#player_pos_from_viewport   = 3d point gdzie patrzy camera
+	#print (player_pos_from_viewport)
 	global_position.x = wrapf(global_position.x, -player_pos_from_viewport.x, player_pos_from_viewport.x)
 
 	#if global_position.x > player_pos_from_viewport.x:

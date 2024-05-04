@@ -1,0 +1,8 @@
+
+
+cmd Win:
+for %i in (java.exe) do @echo.   %~$PATH:i
+
+
+mac/lin:
+$ which java
