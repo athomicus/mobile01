@@ -25,6 +25,7 @@ var start_platform_position_y
 func _ready():
 		GameEvents.connect("player_close_build_additional_platforms",Callable(self,"generate_level"))
 		viewPortSize = get_viewport().get_visible_rect().size #okno w px np cellphone
+		
 		pos_right_down = camera.project_position(viewPortSize,6) # prawy dolny rog gdzie patrzy cam
 		pos_left_down = camera.project_position( Vector2(0,viewPortSize.y), 6)
 		pos_left_up = camera.project_position( Vector2(0,0), 6)
