@@ -20,6 +20,7 @@ func new_game():
 	
 	if player_preload:
 		var _player = player_preload.instantiate()
-		get_tree().current_scene.add_child(_player)
+		#get_tree().current_scene.add_child(_player)
+		add_child(_player)
 		camera.setup_camera(_player)
 
