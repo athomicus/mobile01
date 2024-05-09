@@ -74,6 +74,7 @@ func _physics_process(delta):
 	#	global_position.x = player_pos_from_viewport.x
 func jump():
 	velocity.y = jump_velocity
+	GameEvents.emit_signal("debug_log_signal","Player Jumped!")
 
 func play_animation_player():
 	if velocity.y > 0:

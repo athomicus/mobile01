@@ -64,6 +64,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Debug/ConsolLog/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+autowrap_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="Debug"]
 layout_mode = 0
