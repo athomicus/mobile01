@@ -2,7 +2,9 @@ extends CharacterBody3D
 class_name Player
 @onready var camera = $"../Camera3D"
 
-@onready var animator = $AnimationPlayer
+#@onready var animator = $AnimationPlayer  #OLD
+@onready var animation_player = $capiCartoon/AnimationPlayer
+
 var jump_velocity = 25.0
 var use_accelometer = false
 
@@ -78,9 +80,9 @@ func jump():
 
 func play_animation_player():
 	if velocity.y > 0:
-		if animator.current_animation != "jump":
-			animator.play("jump")
+		if animation_player.current_animation != "jump":
+			animation_player.play("jump")
 	elif velocity.y < 0:
-		if animator.current_animation != "stay":
-			animator.play("stay")
+		if animation_player.current_animation != "Idle":
+			animation_player.play("Idle")
 	

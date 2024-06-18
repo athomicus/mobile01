@@ -1,16 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpye1ql4w86pe"]
+[gd_scene load_steps=4 format=3 uid="uid://dpye1ql4w86pe"]
 
+[ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_gstwm"]
 [ext_resource type="PackedScene" uid="uid://c5sddccipsakj" path="res://screen_button.tscn" id="1_pefql"]
+[ext_resource type="Texture2D" uid="uid://bmjaaldrko8xa" path="res://img/capi_title2.png" id="2_ptry3"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_gstwm")
 
-[node name="ScreenButton" parent="." instance=ExtResource("1_pefql")]
+[node name="TitleScreenButton" parent="." instance=ExtResource("1_pefql")]
 layout_mode = 1
-offset_left = 2.0
-offset_right = 2.0
+offset_left = -7.0
+offset_top = 339.0
+offset_right = -7.0
+offset_bottom = 339.0
+scale = Vector2(0.7, 0.7)
+
+[node name="JumpCappyImg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -276.0
+offset_top = -660.0
+offset_right = 804.0
+offset_bottom = 1260.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("2_ptry3")

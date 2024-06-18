@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chl5bvio0pwxn"]
 
-[ext_resource type="Script" path="res://Game.gd" id="1_fhw7s"]
-[ext_resource type="Script" path="res://Camera3D.gd" id="2_jse2h"]
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_fhw7s"]
+[ext_resource type="Script" path="res://scripts/Camera3D.gd" id="2_jse2h"]
 [ext_resource type="PackedScene" uid="uid://rq01rml4bbl1" path="res://level_generator.tscn" id="4_nc1bo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1xm0"]

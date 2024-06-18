@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu8b5u2pm78wm"]
+[gd_scene load_steps=6 format=3 uid="uid://cu8b5u2pm78wm"]
 
-[ext_resource type="Script" path="res://Screens.gd" id="1_4t6x3"]
+[ext_resource type="Script" path="res://scripts/Screens.gd" id="1_4t6x3"]
 [ext_resource type="Texture2D" uid="uid://ctw13b28twk35" path="res://img/gear.png" id="1_dnkmb"]
 [ext_resource type="PackedScene" uid="uid://dpye1ql4w86pe" path="res://title_screen.tscn" id="3_alke3"]
+[ext_resource type="PackedScene" uid="uid://c5sddccipsakj" path="res://screen_button.tscn" id="4_a8l1j"]
+[ext_resource type="Script" path="res://scripts/base_screen.gd" id="4_joduc"]
 
 [node name="Screens" type="CanvasLayer"]
 script = ExtResource("1_4t6x3")
@@ -15,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ConsolLog" type="Control" parent="Debug"]
 layout_mode = 1
@@ -67,7 +70,7 @@ size_flags_vertical = 3
 layout_mode = 2
 autowrap_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="Debug"]
+[node name="ButtonSettingsGear" type="TextureButton" parent="Debug"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 909.0
@@ -79,6 +82,41 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TitleScreen" parent="." instance=ExtResource("3_alke3")]
-visible = false
+offset_left = -18.0
+offset_top = 38.0
+offset_right = -18.0
+offset_bottom = 38.0
 
-[connection signal="pressed" from="Debug/TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="GameOverScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_joduc")
+
+[node name="Label" type="Label" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = 94.0
+offset_right = 270.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 37
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="GameOverButton" parent="GameOverScreen" instance=ExtResource("4_a8l1j")]
+layout_mode = 1
+offset_left = 245.0
+offset_top = 336.0
+offset_right = 245.0
+offset_bottom = 336.0
+scale = Vector2(0.484927, 0.42)
+
+[connection signal="pressed" from="Debug/ButtonSettingsGear" to="." method="_on_texture_button_pressed"]

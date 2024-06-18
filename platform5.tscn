@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1uoo5utdduce"]
+
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_d6f1k"]
+[ext_resource type="ArrayMesh" uid="uid://bglycdnnjv7wp" path="res://meshes/platform.obj" id="2_ldipd"]
+[ext_resource type="PackedScene" uid="uid://b484mf2l4bl0c" path="res://meshes/platform1.glb" id="3_tkv7e"]
+[ext_resource type="PackedScene" uid="uid://r82ex5l0dcgk" path="res://meshes/platform2.glb" id="4_8h84t"]
+[ext_resource type="PackedScene" uid="uid://dpp3e4eo60tek" path="res://meshes/platform3.glb" id="5_h2xor"]
+[ext_resource type="PackedScene" uid="uid://cq4858k4vtrra" path="res://meshes/platform4.glb" id="6_5g1iv"]
+[ext_resource type="PackedScene" uid="uid://dx4icf8fouhnt" path="res://meshes/platform5.glb" id="7_1xa5m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfjx0"]
+shading_mode = 2
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.572988, 0.572988, 0.572988, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hba33"]
+size = Vector3(1.681, 0.128448, 1.98859)
+
+[node name="Platform" type="Area3D" groups=["PlatformGroup"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_d6f1k")
+
+[node name="Platform" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_nfjx0")
+mesh = ExtResource("2_ldipd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00173324, 0.180956, 0.125275)
+shape = SubResource("BoxShape3D_hba33")
+
+[node name="platform1" parent="." instance=ExtResource("3_tkv7e")]
+visible = false
+
+[node name="platform2" parent="." instance=ExtResource("4_8h84t")]
+visible = false
+
+[node name="platform3" parent="." instance=ExtResource("5_h2xor")]
+visible = false
+
+[node name="platform4" parent="." instance=ExtResource("6_5g1iv")]
+visible = false
+
+[node name="platform5" parent="." instance=ExtResource("7_1xa5m")]

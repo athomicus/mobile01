@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj0gye1wt8oqh"]
+[gd_scene load_steps=6 format=3 uid="uid://bj0gye1wt8oqh"]
 
-[ext_resource type="Script" path="res://platform.gd" id="1_gusje"]
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_gusje"]
 [ext_resource type="ArrayMesh" uid="uid://bglycdnnjv7wp" path="res://meshes/platform.obj" id="1_ocop1"]
+[ext_resource type="PackedScene" uid="uid://b484mf2l4bl0c" path="res://meshes/platform1.glb" id="3_jatlg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfjx0"]
+shading_mode = 2
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.572988, 0.572988, 0.572988, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hba33"]
 size = Vector3(1.681, 0.128448, 1.98859)
@@ -12,8 +19,12 @@ collision_mask = 5
 script = ExtResource("1_gusje")
 
 [node name="Platform" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_nfjx0")
 mesh = ExtResource("1_ocop1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00173324, 0.180956, 0.125275)
 shape = SubResource("BoxShape3D_hba33")
+
+[node name="platform1" parent="." instance=ExtResource("3_jatlg")]
