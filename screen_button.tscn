@@ -4,34 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://byokjqhgmoa5p" path="res://img/play_button.png" id="2_q04aj"]
 
 [node name="ScreenButton" type="TextureButton" groups=["buttons"]]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 238.0
-offset_top = 644.0
-offset_right = -302.0
-offset_bottom = -316.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stretch_mode = 4
-script = ExtResource("1_vq0f0")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -260.0
-offset_top = -493.0
-offset_right = 820.0
-offset_bottom = 1427.0
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -538.0
+offset_right = 443.0
+offset_bottom = -10.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_q04aj")
-stretch_mode = 4
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_q04aj")
+stretch_mode = 3
+script = ExtResource("1_vq0f0")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -10,7 +10,9 @@ func _ready():
 
 
 func appear():
+	
 	visible = true
+	get_tree().call_group("buttons","set_disabled",false)
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a",1.0,0.5)
 	return tween
@@ -22,4 +24,6 @@ func disappear():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a",0.0,0.5)
 	return tween
+
+
 

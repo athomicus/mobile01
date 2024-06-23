@@ -15,15 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("1_gstwm")
-
-[node name="TitleScreenButton" parent="." instance=ExtResource("1_pefql")]
-layout_mode = 1
-offset_left = -7.0
-offset_top = 339.0
-offset_right = -7.0
-offset_bottom = 339.0
-scale = Vector2(0.7, 0.7)
 
 [node name="JumpCappyImg" type="TextureRect" parent="."]
 layout_mode = 0
@@ -34,3 +27,11 @@ offset_bottom = 1260.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("2_ptry3")
+
+[node name="TitleScreenButton" parent="." instance=ExtResource("1_pefql")]
+layout_mode = 1
+offset_left = -118.0
+offset_top = 38.0
+offset_right = 206.0
+offset_bottom = 374.0
+scale = Vector2(0.7, 0.7)

@@ -16320,3 +16320,9 @@ libraries = {
 }
 speed_scale = 4.0
 movie_quit_on_finish = true
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0356931, 0)
+aabb = AABB(-1, 0.205194, -1, 2, 1.01613, 2)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Player
 @onready var camera = $"../Camera3D"
+@onready var cshape = $CollisionShape3D
+var player_is_dead = false
 
 #@onready var animator = $AnimationPlayer  #OLD
 @onready var animation_player = $capiCartoon/AnimationPlayer
@@ -17,6 +19,7 @@ var max_fall_velocity = -10.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
+	
 	#viewport_size = get_viewport().size #for Camera -  na komorce nie dziala!
 	viewport_size = get_viewport().get_visible_rect().size
 	# check if we are on mobile or pc - turn on/off get pos from accelerator
@@ -26,15 +29,14 @@ func _ready():
 		
 	
 	
-	
-func _process(delta):
+	#	func _process(delta):
 	
 		
 	#if Input.is_key_pressed(KEY_SPACE):
 	#	jump()
 		
-	if Input.is_action_just_pressed("Jump"):
-		jump()
+	#if Input.is_action_just_pressed("Jump"):
+	#	jump()
 func _physics_process(delta):
 	
 	play_animation_player()
@@ -42,18 +44,18 @@ func _physics_process(delta):
 	velocity.y -= gravity 
 	if velocity.y < max_fall_velocity:
 		velocity.y = max_fall_velocity #przelatuje
-		
-	if use_accelometer:
-		var mobile_input = Input.get_accelerometer()
-		velocity.x = mobile_input.x * accelometer_speed
-		#print(str(mobile_input))
-	else:
-		var direction = Input.get_axis("move_left","move_right")
-		if direction:
-			velocity.x = direction * SPEED
+	if !player_is_dead:	
+		if use_accelometer:
+			var mobile_input = Input.get_accelerometer()
+			velocity.x = mobile_input.x * accelometer_speed
+			#print(str(mobile_input))
 		else:
-			velocity.x = move_toward(velocity.x, 0 ,SPEED/10)
-	move_and_slide()
+			var direction = Input.get_axis("move_left","move_right")
+			if direction:
+				velocity.x = direction * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0 ,SPEED/10)
+		move_and_slide()
 	
 	#global_transform.origin.x the same global_position.x
 	# 
@@ -86,3 +88,16 @@ func play_animation_player():
 		if animation_player.current_animation != "Idle":
 			animation_player.play("Idle")
 	
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited():
+	#print("playerr exit")
+	die()
+
+func die():
+	if !player_is_dead:
+		cshape.set_deferred("disabled",true)
+		player_is_dead = true
+		GameEvents.player_died.emit()
+		#queue_free()
+
