@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var score_label = $TopBar/ScoreLabekl
 @onready var topbar = $TopBar
 @onready var topbar_bckgr = $ColorRectBckgr
 
@@ -22,12 +22,15 @@ func _ready():
 		
 
 
-
+#func _process(delta):
+#	set_score(5)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
+func set_score(new_score):
+	score_label.text = str(new_score)
 
 func _on_pause_button_pressed():
 	print("pause")

@@ -98,6 +98,7 @@ func die():
 	if !player_is_dead:
 		cshape.set_deferred("disabled",true)
 		player_is_dead = true
+		visible = false
 		GameEvents.player_died.emit()
 		#queue_free()
 
